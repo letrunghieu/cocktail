@@ -2,7 +2,7 @@
   "name": "cocktail",
   "version": "1.0.0",
   "description": "An asset building tool that is inspired by Sprocket",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,5 +25,13 @@
   "bugs": {
     "url": "https://github.com/letrunghieu/cocktail/issues"
   },
-  "homepage": "https://github.com/letrunghieu/cocktail#readme"
+  "homepage": "https://github.com/letrunghieu/cocktail#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "gulp-util": "^3.0.6",
+    "recursive-readdir-sync": "^1.0.6"
+  }
 }
