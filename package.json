@@ -1,0 +1,29 @@
+{
+  "name": "cocktail",
+  "version": "1.0.0",
+  "description": "An asset building tool that is inspired by Sprocket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/letrunghieu/cocktail.git"
+  },
+  "keywords": [
+    "assets",
+    "minify",
+    "building",
+    "sass",
+    "less",
+    "coffee",
+    "sprocket",
+    "gulp"
+  ],
+  "author": "Hieu Le <letrunghieu.cse09@gmail.com> (https://www.hieule.info)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/letrunghieu/cocktail/issues"
+  },
+  "homepage": "https://github.com/letrunghieu/cocktail#readme"
+}
