@@ -15,25 +15,25 @@ var Cocktail = function () {
         var cocktail = this;
         
         gutil.log("Mixing cocktail ...");
-
+        
         _.forEach(files, function (file) {
             var ext = path.extname(file);
             var output = cocktail.getOutputPath(source, file, build);
             var mixer = cocktail.getMixer(ext);
             var logicPath = path.relative(source, file);
-
+            
             cocktail.getMixer(ext).mix(file, output);
             gutil.log(" ", gutil.colors.yellow(mixer.name), logicPath);
         });
     };
     
     this.listFiles = function (dir) {
-        var files = ls(dir, function (file) { 
+        var files = ls(dir, function (file) {
             return file[0] !== '_' && file[0] !== '.';
-        }).map(function (f) { 
+        }).map(function (f) {
             return path.resolve(path.join(dir, f));
         });
-
+        
         return files;
     };
     
@@ -63,4 +63,10 @@ require('./mixers/less')(cocktail);
 require('./mixers/coffee')(cocktail);
 require('./mixers/sprocket')(cocktail);
 
-module.exports = cocktail;
+module.exports = function (source, build) {
+    if (typeof source == 'undefined' || typeof build == 'undefined') {
+        return cocktail;
+    }
+
+    return cocktail.mix(source, build);
+};

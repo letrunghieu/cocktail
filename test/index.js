@@ -5,7 +5,7 @@ var given = require('mocha-testdata');
 
 describe('Cocktail', function () {
     describe('#getOutputFile(ourceDir, file, buildDir)', function () {
-        var cocktail = require('./../src/index');
+        var cocktail = require('./../src/index')();
         
         given(
             ['/in/bar.png', '/out'],
@@ -18,7 +18,7 @@ describe('Cocktail', function () {
     });
     
     describe('#listFiles(dir)', function () {
-        var cocktail = require('./../src/index');
+        var cocktail = require('./../src/index')();
         
         it('should return the correct array', function () {
             var files = cocktail.listFiles('./test/assets/resources');
@@ -41,7 +41,7 @@ describe('Cocktail', function () {
     });
     
     describe('#getMixer(ext)', function () {
-        var cocktail = require('./../src/index');
+        var cocktail = require('./../src/index')();
         
         given(
             ['', 'default'],
