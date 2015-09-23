@@ -8,6 +8,8 @@ var SprocketMixer = function (cocktail) {
     this.mix = function (input, output) {
         console.log(input, output);
     }
+
+    this.name = 'sprocket';
 }
 
 module.exports = function (cocktail) {

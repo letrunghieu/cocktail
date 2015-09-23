@@ -8,6 +8,8 @@ var DefaultMixer = function (cocktail) {
     this.mix = function (input, output) {
         console.log(input, output);
     }
+
+    this.name = 'default';
 }
 
 module.exports = function (cocktail) {

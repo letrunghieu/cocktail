@@ -8,6 +8,8 @@ var SassMixer = function (cocktail) {
     this.mix = function (input, output) {
         console.log(input, output);
     }
+
+    this.name = 'sass';
 }
 
 module.exports = function (cocktail) {

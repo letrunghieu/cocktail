@@ -8,6 +8,8 @@ var CoffeeMixer = function (cocktail) {
     this.mix = function (input, output) {
         console.log(input, output);
     }
+
+    this.name = 'coffee';
 }
 
 module.exports = function (cocktail) {

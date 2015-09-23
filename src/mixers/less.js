@@ -8,6 +8,8 @@ var LessMixer = function (cocktail) {
     this.mix = function (input, output) {
         console.log(input, output);
     }
+    
+    this.name = 'less';
 }
 
 module.exports = function (cocktail) {

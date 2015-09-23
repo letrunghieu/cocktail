@@ -53,5 +53,6 @@ var cocktail = new Cocktail();
 require('./mixers/sass')(cocktail);
 require('./mixers/less')(cocktail);
 require('./mixers/coffee')(cocktail);
+require('./mixers/sprocket')(cocktail);
 
 module.exports = cocktail;
