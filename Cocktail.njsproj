@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{2c2653e4-1379-4b09-9b46-2ee7b7c5fa7f}</ProjectGuid>
     <ProjectHome />
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <StartupFile>Config.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -34,6 +34,14 @@
     <Folder Include="src" />
     <Folder Include="src\mixers" />
     <Folder Include="test" />
+    <Folder Include="test\assets\" />
+    <Folder Include="test\assets\resources\" />
+    <Folder Include="test\assets\resources\less\" />
+    <Folder Include="test\assets\resources\coffee\" />
+    <Folder Include="test\assets\resources\css\" />
+    <Folder Include="test\assets\resources\js\" />
+    <Folder Include="test\assets\resources\sass\" />
+    <Folder Include="test\assets\resources\txt\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->

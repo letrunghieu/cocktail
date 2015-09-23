@@ -4,7 +4,7 @@
   "description": "An asset building tool that is inspired by Sprocket",
   "main": "src/index.js",
   "scripts": {
-    "test": ".node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -27,13 +27,14 @@
   },
   "homepage": "https://github.com/letrunghieu/cocktail#readme",
   "devDependencies": {
+    "chai": "^3.3.0",
     "gulp": "^3.9.0",
     "mocha": "^2.3.3"
   },
   "dependencies": {
     "blanket": "^1.1.7",
-    "gulp-util": "^3.0.6",
-    "recursive-readdir-sync": "^1.0.6"
+    "fs-readdir-recursive": "^0.1.2",
+    "gulp-util": "^3.0.6"
   },
   "config": {
     "blanket": {

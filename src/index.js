@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var fs = require('fs');
 var path = require('path');
+var ls = require('fs-readdir-recursive');
 
 var Cocktail = function () {
     this.mixers = {};
@@ -12,7 +13,13 @@ var Cocktail = function () {
     };
     
     this.listFiles = function (dir) {
+        var files = ls(dir, function (file) { 
+            return file[0] !== '_' && file[0] !== '.';
+        }).map(function (f) { 
+            return path.resolve(path.join(dir, f));
+        });
 
+        return files;
     };
     
     this.registerMixer = function (ext, mixer) {
