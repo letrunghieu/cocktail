@@ -58,4 +58,4 @@ describe('Cocktail', function () {
             expect(mixer.name).to.equals(mixerName);
         });
     });
-}); 
+});
