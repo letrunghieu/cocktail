@@ -2,3 +2,4 @@ node_modules
 /obj
 .ntvs_analysis.dat
 coverage.html
+test/assets/output

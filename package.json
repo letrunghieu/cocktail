@@ -35,7 +35,8 @@
   "dependencies": {
     "blanket": "^1.1.7",
     "fs-readdir-recursive": "^0.1.2",
-    "gulp-util": "^3.0.6"
+    "gulp-util": "^3.0.6",
+    "lodash": "^3.10.1"
   },
   "config": {
     "blanket": {

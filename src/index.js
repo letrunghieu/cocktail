@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var fs = require('fs');
 var path = require('path');
 var ls = require('fs-readdir-recursive');
+var _ = require('lodash');
+var gutil = require('gulp-util');
 
 var Cocktail = function () {
     this.mixers = {};
@@ -9,7 +11,20 @@ var Cocktail = function () {
     this.defaultMixer = require('./mixers/default')(this);
     
     this.mix = function (source, build) {
+        var files = this.listFiles(source);
+        var cocktail = this;
+        
+        gutil.log("Mixing cocktail ...");
 
+        _.forEach(files, function (file) {
+            var ext = path.extname(file);
+            var output = cocktail.getOutputFile(source, file, build);
+            var mixer = cocktail.getMixer(ext);
+            var logicPath = path.relative(source, file);
+
+            cocktail.getMixer(ext).mix(file, output);
+            gutil.log(" ", gutil.colors.yellow(mixer.name), logicPath);
+        });
     };
     
     this.listFiles = function (dir) {
