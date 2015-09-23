@@ -13,7 +13,7 @@ var LessMixer = function (cocktail) {
     this.mix = function (input, output) {
         
         var config = cocktail.config;
-        var options = cocktail.config.css.sass.pluginOptions;
+        var options = cocktail.config.css.less.pluginOptions;
 
         gulp.src(input)
         .pipe(_if(!config.production && config.sourcemaps, _sourcemaps.init()))

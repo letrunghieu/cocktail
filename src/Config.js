@@ -106,7 +106,7 @@ var config = {
     js: {
         coffee: {           
             // https://github.com/wearefractal/gulp-coffee#options
-            options: {}
+            pluginOptions: {}
         }
     },
     
