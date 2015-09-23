@@ -21,14 +21,22 @@
     <Content Include="README.md" />
     <Compile Include="Config.js" />
     <Compile Include="src\index.js" />
+    <Compile Include="src\mixers\coffee.js" />
+    <Compile Include="test\assets\resources\js\app.js" />
     <Compile Include="test\index.js">
       <TestFramework>Mocha</TestFramework>
     </Compile>
-    <Compile Include="src\mixers\coffee.js" />
     <Compile Include="src\mixers\default.js" />
     <Compile Include="src\mixers\less.js" />
     <Compile Include="src\mixers\sass.js" />
     <Compile Include="src\mixers\sprocket.js" />
+    <Content Include="test\assets\resources\coffee\app.coffee" />
+    <Content Include="test\assets\resources\css\app.css" />
+    <Content Include="test\assets\resources\less\app.less" />
+    <Content Include="test\assets\resources\sass\app.scss" />
+    <Content Include="test\assets\resources\txt\.not_copy.txt" />
+    <Content Include="test\assets\resources\txt\copy.txt" />
+    <Content Include="test\assets\resources\txt\_not_copy.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src" />
@@ -36,10 +44,10 @@
     <Folder Include="test" />
     <Folder Include="test\assets\" />
     <Folder Include="test\assets\resources\" />
-    <Folder Include="test\assets\resources\less\" />
     <Folder Include="test\assets\resources\coffee\" />
     <Folder Include="test\assets\resources\css\" />
     <Folder Include="test\assets\resources\js\" />
+    <Folder Include="test\assets\resources\less\" />
     <Folder Include="test\assets\resources\sass\" />
     <Folder Include="test\assets\resources\txt\" />
   </ItemGroup>
