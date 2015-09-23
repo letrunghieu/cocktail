@@ -1,6 +1,6 @@
 {
   "name": "asset-cocktail",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An asset building tool that is inspired by Sprocket",
   "main": "src/index.js",
   "scripts": {
