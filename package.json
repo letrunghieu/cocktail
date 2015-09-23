@@ -35,10 +35,14 @@
   "dependencies": {
     "blanket": "^1.1.7",
     "fs-readdir-recursive": "^0.1.2",
+    "gulp-autoprefixer": "^3.0.1",
     "gulp-coffee": "^2.3.1",
+    "gulp-if": "^1.2.5",
     "gulp-include": "^2.0.2",
     "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.2.1",
     "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-util": "^3.0.6",
     "lodash": "^3.10.1"
   },

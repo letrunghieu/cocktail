@@ -8,6 +8,8 @@ var gutil = require('gulp-util');
 var Cocktail = function () {
     this.mixers = {};
     
+    this.config = require('./Config');
+    
     this.defaultMixer = require('./mixers/default')(this);
     
     this.mix = function (source, build) {
