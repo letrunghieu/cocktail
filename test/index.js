@@ -53,11 +53,14 @@ describe('Cocktail', function () {
             ['', 'default'],
             ['.scss', 'sass'],
             ['.sass', 'sass'],
+            ['.less', 'less'],
             ['.css', 'sprocket'],
             ['.js', 'sprocket'],
             ['.coffee', 'coffee'],
+            ['.png', 'default']
         ).it('should return correct mixer for extension', function (ext, mixerName) {
             var mixer = cocktail.getMixer(ext);
+            
             expect(mixer.name).to.equals(mixerName);
         });
     });
