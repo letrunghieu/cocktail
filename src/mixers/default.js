@@ -1,6 +1,5 @@
 var fs = require('fs');
 var gulp = require('gulp');
-var path = require('path');
 
 var DefaultMixer = function (cocktail) {
     this.getOutputExt = function () {
@@ -9,7 +8,7 @@ var DefaultMixer = function (cocktail) {
     
     this.mix = function (input, output) {
         gulp.src(input)
-        .pipe(gulp.dest(path.dirname(output)));
+        .pipe(gulp.dest(output));
     }
 
     this.name = 'default';

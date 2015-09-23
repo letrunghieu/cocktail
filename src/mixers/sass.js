@@ -1,4 +1,6 @@
 var fs = require('fs');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
 
 var SassMixer = function (cocktail) {
     this.getOutputExt = function () {
@@ -6,7 +8,9 @@ var SassMixer = function (cocktail) {
     };
     
     this.mix = function (input, output) {
-        console.log(input, output);
+        gulp.src(input)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(output))
     }
 
     this.name = 'sass';

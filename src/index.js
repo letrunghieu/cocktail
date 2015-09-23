@@ -18,7 +18,7 @@ var Cocktail = function () {
 
         _.forEach(files, function (file) {
             var ext = path.extname(file);
-            var output = cocktail.getOutputFile(source, file, build);
+            var output = cocktail.getOutputPath(source, file, build);
             var mixer = cocktail.getMixer(ext);
             var logicPath = path.relative(source, file);
 
@@ -49,17 +49,10 @@ var Cocktail = function () {
         }
     };
     
-    this.getOutputFile = function (sourceDir, file, buildDir) {
-        var ext = path.extname(file);
-        var filename = path.basename(file, ext);
+    this.getOutputPath = function (sourceDir, file, buildDir) {
         var filedir = path.dirname(file);
         
-        var outputExt = this.getMixer(ext).getOutputExt();
-        if (!outputExt) {
-            outputExt = ext;
-        }
-        
-        return path.resolve(buildDir, path.relative(sourceDir, filedir), (filename + outputExt));
+        return path.resolve(buildDir, path.relative(sourceDir, filedir));
     }
 }
 

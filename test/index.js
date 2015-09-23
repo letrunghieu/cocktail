@@ -8,21 +8,11 @@ describe('Cocktail', function () {
         var cocktail = require('./../src/index');
         
         given(
-            ['/in/bar.png', '/out/bar.png'],
-            ['/in/foo/bar.png', '/out/foo/bar.png'],
-            // sass
-            ['/in/bar.sass', '/out/bar.css'],
-            ['/in/bar.scss', '/out/bar.css'],
-            // less
-            ['/in/bar.less', '/out/bar.css'],
-            // coffee
-            ['/in/bar.coffee', '/out/bar.js'],
-            // sprocket
-            ['/in/bar.css', '/out/bar.css'],
-            ['/in/bar.js', '/out/bar.js']
+            ['/in/bar.png', '/out'],
+            ['/in/foo/bar.png', '/out/foo']
 
         ).it('should return correct destination file', function (file, result) {
-            expect(cocktail.getOutputFile('/in', file, '/out'))
+            expect(cocktail.getOutputPath('/in', file, '/out'))
             .to.equals(path.resolve(result));
         });
     });
