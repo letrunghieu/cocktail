@@ -1,4 +1,7 @@
-var fs = require('fs');
+var gulp = require('gulp');
+var coffee = require('gulp-coffee');
+var gutil = require('gulp-util');
+var include = require('gulp-include');
 
 var CoffeeMixer = function (cocktail) {
     this.getOutputExt = function () {
@@ -6,9 +9,12 @@ var CoffeeMixer = function (cocktail) {
     };
     
     this.mix = function (input, output) {
-        console.log(input, output);
+        gulp.src(input)
+        .pipe(include({ extensions: "coffee" }))
+        .pipe(coffee({ bare: true }).on('error', gutil.log))
+        .pipe(gulp.dest(output));
     }
-
+    
     this.name = 'coffee';
 }
 
