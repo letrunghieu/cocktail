@@ -42,7 +42,7 @@ var config = {
     sourcemaps: true,
     
     css: {
-                
+        
         /*
          |----------------------------------------------------------------
          | CSS3 Autoprefixing
@@ -75,7 +75,7 @@ var config = {
          |
          */
 
-        sass: {            
+        sass: {
             // https://github.com/sass/node-sass#options
             pluginOptions: {
                 outputStyle: 'expanded'
@@ -93,14 +93,14 @@ var config = {
          |
          */
 
-        less: {           
+        less: {
             // https://github.com/plus3network/gulp-less#options
             pluginOptions: {}
         }
     },
     
     js: {
-        coffee: {           
+        coffee: {
             // https://github.com/wearefractal/gulp-coffee#options
             pluginOptions: {}
         }

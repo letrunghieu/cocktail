@@ -7,6 +7,7 @@ var gutil = require('gulp-util');
 var del = require('del');
 var through = require('through2');
 var duplex = require('duplexer2');
+var pedding = require('pedding');
 
 var Cocktail = function () {
     
@@ -24,7 +25,7 @@ var Cocktail = function () {
     
     this.mix = function (source, build) {
         var files = this.listFiles(source);
-        //var cocktail = this;
+        
         var $ = this.plugins;
         
         gutil.log("Clearing folder", gutil.colors.magenta(build), "...");
@@ -34,11 +35,10 @@ var Cocktail = function () {
         gutil.log("Mixing cocktail ...");
         
         return gulp.src(files, { base: source })
-                //.pipe($.plumber())
+                .pipe($.plumber())
                 .pipe($.data(cocktail.attachMixer))
-                .pipe($.if(cocktail.isAssetFile, $.rev()))
                 .pipe(cocktail.mixFile())
-                .pipe($.debug())
+                .pipe($.if(cocktail.isAssetFile, $.rev()))
                 .pipe(gulp.dest(build))
                 .pipe($.rev.manifest())
                 .pipe(gulp.dest(build));
@@ -67,41 +67,59 @@ var Cocktail = function () {
     };
     
     this.isAssetFile = function (file) {
+        if (typeof file.data == "undefined" || typeof file.data.mixer == "undefined") {
+            return false;
+        }
         return file.data.mixer.isAsset || false;
     };
     
     this.mixFile = function () {
         
         var streams = {};
-        
         var outputStream = through.obj();
+        var numStreams = 0;
         
         _.forIn(cocktail.mixers, function (mixer, ext) {
-            var s = mixer.getStream();
+            var stream = mixer.getStream();
             
-            if (!!s) {
-                var stream = s();
-                stream.pipe(outputStream);
+            if (!!stream) {
                 streams[ext] = stream;
+                numStreams++;
             }
         });
         
-
+        // stream end when all read ends
+        var end = pedding(numStreams + 1, function () {
+            outputStream.end();
+        });
+        
+        _.forEach(streams, function (stream) {
+            stream.pipe(outputStream, { end: false });
+            stream.on('end', end);
+        });
+        
+        
         var inputStream = through.obj(function (file, encoding, callback) {
             
             var ext = path.extname(file.path);
-
+            
             if (_.has(streams, ext)) {
                 streams[ext].write(file);
                 return callback();
             }
-
+            
             this.push(file);
             return callback();
+        }, function (cb) {
+            _.forEach(streams, function (stream) {
+                stream.end();
+            });
+            end();
+            cb();
         });
         
         inputStream.pipe(outputStream);
-
+        
         return duplex({ objectMode: true }, inputStream, outputStream);
     }
     
@@ -115,8 +133,8 @@ var cocktail = new Cocktail();
 
 require('./mixers/sass')(cocktail);
 require('./mixers/less')(cocktail);
-//require('./mixers/coffee')(cocktail);
-//require('./mixers/sprocket')(cocktail);
+require('./mixers/coffee')(cocktail);
+require('./mixers/sprocket')(cocktail);
 
 module.exports = function (source, build) {
     if (typeof source == 'undefined' || typeof build == 'undefined') {
