@@ -118,7 +118,7 @@ var Cocktail = function () {
             cb();
         });
         
-        inputStream.pipe(outputStream);
+        inputStream.pipe(outputStream, { end: false });
         
         return duplex({ objectMode: true }, inputStream, outputStream);
     }
