@@ -8,12 +8,8 @@ var gutils = require('gulp-util');
  |----------------------------------------------------------------
  |
  | This file contains the proper paths and options for each and
- | and every Gulp task that Elixir wraps up. To override any
- | setting, reference elixir.config.* from your Gulpfile.
- |
- | Alternatively you may create an elixir.json file within your
- | project root. As JSON, modify any settings contained here
- | and they'll take precedence over these defaults. Easy!
+ | and every Gulp task that Cocktail wraps up. To override any
+ | setting, reference cocktail().config.* from your Gulpfile.
  |
  */
 
@@ -110,34 +106,6 @@ var config = {
         }
     },
     
-};
-
-
-/**
- * Fetch a config item, using a string dot-notation.
- *
- * @param  {string} path
- * @return {string}
- */
-config.get = function (path) {
-    var basePath;
-    var current = config;
-    
-    var segments = path.split('.');
-    
-    // If the path begins with "assets" or "public," then
-    // we can assume that the user wants to prefix the
-    // given base url to their config path. Useful!
-    
-    if (segments[0] == 'assets' || segments[0] == 'public') {
-        basePath = config[segments.shift() + 'Path'];
-    }
-    
-    segments.forEach(function (segment) {
-        current = current[segment];
-    });
-    
-    return p.join(basePath, current);
 };
 
 

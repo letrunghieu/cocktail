@@ -1,14 +1,16 @@
 var gulp = require('gulp');
+var stream = require('lazypipe');
 
 var DefaultMixer = function (cocktail) {
     this.getOutputExt = function () {
         return false;
     };
     
-    this.mix = function (input, output) {
-        gulp.src(input)
-        .pipe(gulp.dest(output));
-    }
+    this.getStream = function () {
+        
+        return false;
+
+    };
 
     this.name = 'default';
 }
