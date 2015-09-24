@@ -4,18 +4,6 @@ var expect = require('chai').expect;
 var given = require('mocha-testdata');
 
 describe('Cocktail', function () {
-    describe('#getOutputFile(ourceDir, file, buildDir)', function () {
-        var cocktail = require('./../src/index')();
-        
-        given(
-            ['/in/bar.png', '/out'],
-            ['/in/foo/bar.png', '/out/foo']
-
-        ).it('should return correct destination file', function (file, result) {
-            expect(cocktail.getOutputPath('/in', file, '/out'))
-            .to.equals(path.resolve(result));
-        });
-    });
     
     describe('#listFiles(dir)', function () {
         var cocktail = require('./../src/index')();
